@@ -10,13 +10,13 @@ class UserSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ProjectSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Project
-        fields = '__all__'
-
-
 class AccessSerializer(serializers.ModelSerializer):
     class Meta:
         model = Access
         fields = '__all__'
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = ['id', 'name', 'state', 'date']
