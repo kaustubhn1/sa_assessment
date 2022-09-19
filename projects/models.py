@@ -6,6 +6,9 @@ class Permissions(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = 'Permissions'
+
 
 class Users(models.Model):
     access = models.ManyToManyField(Permissions)
@@ -13,6 +16,9 @@ class Users(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = 'Users'
 
 
 class Project(models.Model):
@@ -35,4 +41,7 @@ class Access(models.Model):
         constraints = [
             models.UniqueConstraint(fields=['project', 'user', "permit"], name='unique')
         ]
+
+    class Meta:
+        verbose_name_plural = 'Accesses'
 
